@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teams</title>
+  <meta name="description" content="Meet the competing teams at the 2026 OVCA Junior Superspiel" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/teams.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-inner">
+      <img src="../images/logo_grey_transparent.png" alt="OVCA Junior Superspiel" style="height: 80px; width: auto;" />
+      <button class="nav-toggle" aria-label="Open menu" id="nav-toggle">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="details.html">Details</a></li>
+        <li><a href="teams.html" class="active">Teams</a></li>
+        <li><a href="/pages/history.html">Our History</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-label light">2026 Participants</div>
+      <h1 class="page-hero-title">The Field</h1>
+      <p class="page-hero-sub">Meet the Competition (Tap cards to see full rosters)</p>
+    </div>
+  </section>
+
+  <!-- DIVISION TABS -->
+  <nav class="teams-nav" aria-label="Division">
+    <div class="teams-nav-inner">
+      <button class="tab-btn active" data-tab="mens" id="tab-mens">
+        Men's <span class="tab-count" id="mens-count">16</span>
+      </button>
+      <button class="tab-btn" data-tab="womens" id="tab-womens">
+        Women's <span class="tab-count" id="womens-count">16</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="teams-main">
+
+    <!-- MEN'S PANEL -->
+    <div class="division-panel active" id="panel-mens">
+      <div class="division-header">
+        <h2 class="division-title">Men's Division</h2>
+        <span class="division-sub">16 Teams</span>
+      </div>
+      <div class="teams-grid" id="grid-mens"></div>
+    </div>
+
+    <!-- WOMEN'S PANEL -->
+    <div class="division-panel" id="panel-womens">
+      <div class="division-header">
+        <h2 class="division-title">Women's Division</h2>
+        <span class="division-sub">16 Teams</span>
+      </div>
+      <div class="teams-grid" id="grid-womens"></div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="../index.html" class="footer-logo">
+        <img src="../images/logo_grey_transparent.png" alt="OVCA Junior Superspiel" style="height: 90px; width: auto;" />
+      </a>
+      <nav class="footer-nav">
+        <a href="../index.html">Home</a>
+        <a href="details.html">Details</a>
+        <a href="teams.html">Teams</a>
+        <a href="/pages/history.html">Our History</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-info">
+        <p>OVCA Junior Superspiel 2026</p>
+        <p>Ottawa · November 6–8, 2026</p>
+        <p class="footer-copy">&copy; 2026 Ottawa Valley Curling Association</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    /* ─── TEAM DATA ───────────────────────────────────────────────
+       Fill in name, province/region, and optionally a photo path.
+       country: ISO 3166-1 alpha-2 code (ca, us, no, se, gb, etc.)
+       photo:   relative path e.g. "../images/teams/smith.jpg", or null
+    ─────────────────────────────────────────────────────────────── */
+    const TEAMS = {
+      mens: [
+        { name: "Team MacDougall", province: "Canada", country: "CA.png", photo: "/images/MacDougall.jpg",
+          members: { skip: "Evan MacDougall", lead: "Carson Kaye", second: "Evan Madore", third: "Dylan Stockton", fifth: null, coach: "Jordan Thin" } },
+        { name: "Team French", province: "Newfoundland", country: "NL.png", photo: "/images/French.jpeg",
+          members: { skip: "Zachery French", lead: "Benjamin Kennedy", second: "Lucas Wall", third: "Lucas Cole", fifth: null, coach: "Alex Smith" } },
+        { name: "Team Atherton", province: "Nova Scotia", country: "NS.png", photo: "/images/Atherton.jpeg",
+          members: { skip: "Zachary Atherton", lead: "Jed Freeman", second: "Tyler McMullen", third: "Alan Fawcett", fifth: null, coach: "Paul Flemming/Ryan Abraham" } },
+        { name: "Team Hughes", province: "New Brunswick", country: "NB.png", photo: "/images/Hughes.jpg",
+          members: { skip: "Michael Hughes", lead: "William MacDonald", second: "Sam Worden", third: "Xander King", fifth: null, coach: "Matt Hughes" } },
+        { name: "Team Symeonides", province: "Ontario", country: "ON.png", photo: "/images/Symeonides.jpg",
+          members: { skip: "Alec Symeonides", lead: "Jacob Pierunek", second: "Spencer Scriver", third: "Liam Rowe", fifth: null, coach: "Gary Rowe" } },
+        { name: "Team Tremblay", province: "Quebec", country: "QC.png", photo: null, 
+          members: { skip: "Raphaël Tremblay", lead: "Parker Harris", second: "Tyler MacTavish", third: "Louis-François Brassard", fifth: null, coach: "Jean-Sébastien Roy" } },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+      ],
+      womens: [
+        { name: "Team Fortin", province: "Canada", country: "CA.png", photo: "/images/Fortin.jpg", 
+          members: { skip: "Jolianne Fortin", lead: "Megane Fortin", second: "Megan Lafrance", third: "Emy Lafrance", fifth: null, coach: "Brandon Lafrance" } },
+        { name: "Team Schwaller", province: "Switzerland", country: "SUI.png", photo: "/images/Schwaller.jpeg",
+          members: { skip: "Zoe Schwaller", lead: "Ladina Ramstein", second: "Anikò Székely", third: "Jana Soltermann", fifth: null, coach: "Greg Obrist" } },
+        { name: "Team McEvoy", province: "Nova Scotia", country: "NS.png", photo: null,
+          members: { skip: "Myra McEvoy", lead: "Lily MacDonald", second: "Erin Sinclair", third: "Drew Clarke", fifth: "Lily Hammond", coach: "Marion MacAulay" } },
+        { name: "Team Blades", province: "Nova Scotia", country: "NS.png", photo: "/images/Blades.jpg",
+          members: { skip: "Cassidy Blades", lead: "Lily Mitchell", second: "Anna MacNutt", third: "Steffi Atherton", fifth: null, coach: "Andrew Atherton" } },
+        { name: "Team Colwell", province: "New Brunswick", country: "NB.png", photo: null,
+          members: { skip: "Avery Colwell", lead: "Mackenzie Moore", second: "Coralie Tessier", third: "Anna Comeau", fifth: null, coach: "Sheri Colwell" } },
+        { name: "Team St. James", province: "Quebec", country: "QC.png", photo: "/images/StJames.jpg",
+          members: { skip: "Summer St. James", lead: "Jasmine Bédard", second: "Emma Nguyen", third: "Molly Whitbread", fifth: null, coach: "Sonny St. James" } },
+        { name: "Team Frlan", province: "Ontario", country: "ON.png", photo: "/images/Frlan.jpg",
+          members: { skip: "Katrina Frlan", lead: "Lauren Norman", second: "Samantha Wall", third: "Erika Wainwright", fifth: null, coach: "Byron Scott" } },
+        { name: "Team Wilson", province: "Ontario", country: "ON.png", photo: "/images/Wilson.jpg", 
+          members: { skip: "Charlotte Wilson", lead: "Sydney Anderson", second: "Abby Rushton", third: "Amelia Benning", fifth: "Olivia Moore", coach: "Iain Wilson" } },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+        { name: "Team Name", province: "Province / Region", country: "ca", photo: null, members: null },
+      ]
+    };
+
+    function flagHtml(t) {
+      return t.country
+        ? `<img class="team-flag" src="/images/flags/${t.country}" />`
+        : `<div class="team-flag-placeholder">"/images/flags/CA.png"</div>`;
+    }
+
+    function memberRows(m) {
+      if (!m) return `<div class="card-back-tbd"><span>Roster TBD</span></div>`;
+      const roles = [
+        { key: 'skip',   label: 'Skip' },
+        { key: 'third',  label: 'Third' },
+        { key: 'second', label: 'Second' },
+        { key: 'lead',   label: 'Lead' },
+        { key: 'fifth',  label: 'Fifth' },
+        { key: 'coach',  label: 'Coach' },
+      ];
+      const rows = roles
+        .filter(r => m[r.key])
+        .map(r => `
+          <div class="card-member-row ${r.key === 'coach' ? 'coach' : ''}">
+            <span class="card-member-role">${r.label}</span>
+            <span class="card-member-name">${m[r.key]}</span>
+          </div>`)
+        .join('');
+      return rows || `<div class="card-back-tbd"><span>Roster TBD</span></div>`;
+    }
+
+    function renderTeams(division) {
+      const grid = document.getElementById(`grid-${division}`);
+      const teams = TEAMS[division];
+      grid.innerHTML = teams.map((t, i) => `
+        <div class="team-card" onclick="this.classList.toggle('flipped')">
+          <div class="card-inner">
+
+            <!-- FRONT -->
+            <div class="card-front">
+              <div class="team-card-header">
+                ${flagHtml(t)}
+                <div>
+                  <div class="team-name">${t.name}</div>
+                  <div class="team-origin">${t.province}</div>
+                </div>
+              </div>
+              <div class="team-photo">
+                ${t.photo
+                  ? `<img src="${t.photo}" alt="${t.name}" loading="lazy" />`
+                  : `<div class="team-photo-placeholder">
+                      <div class="placeholder-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                          <circle cx="9" cy="7" r="4"/>
+                          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                      </div>
+                      <span class="placeholder-text">TBD</span>
+                    </div>`
+                }
+                <div class="team-num">${String(i + 1).padStart(2, '0')}</div>
+              </div>
+            </div>
+
+            <!-- BACK -->
+            <div class="card-back">
+              <div class="card-back-header">
+                ${flagHtml(t)}
+                <div>
+                  <div class="team-name">${t.name}</div>
+                  <div class="team-origin">${t.province}</div>
+                </div>
+              </div>
+              <div class="card-back-body">
+                ${memberRows(t.members)}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      `).join('');
+    }
+
+    renderTeams('mens');
+    renderTeams('womens');
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.division-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(`panel-${btn.dataset.tab}`).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
