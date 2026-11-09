@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/carousel.css" />
 </head>
 <body>
 
@@ -117,6 +118,81 @@
     </div>
   </section>
 
+  <!-- WINNERS & FINALISTS CAROUSEL -->
+  <section class="winners" id="winners">
+    <div class="container">
+      <div class="winners-head">
+        <div class="section-label light">2026 Results</div>
+        <h2 class="section-title">Winners &amp; Finalists</h2>
+      </div>
+
+      <div class="carousel" data-carousel>
+        <div class="carousel-viewport">
+
+          <!--
+            HOW TO EDIT A SLIDE:
+            1. Change the image file name in src="..."
+            2. Change alt="..." to a short description of the photo
+            3. Change the team name and placement text
+            To add a slide: copy one whole <figure>...</figure> block.
+            To remove one: delete its block. The dots update on their own.
+            Keep class="slide is-active" ONLY on the first slide.
+          -->
+
+          <figure class="slide is-active">
+            <img src="images/winner-1.jpg" alt="PLACEHOLDER: describe photo 1" onerror="this.style.display='none'" />
+            <figcaption class="slide-caption">
+              <span class="slide-team">Team Name 1</span>
+              <span class="slide-place">Placement 1</span>
+            </figcaption>
+          </figure>
+
+          <figure class="slide">
+            <img src="images/winner-2.jpg" alt="PLACEHOLDER: describe photo 2" loading="lazy" onerror="this.style.display='none'" />
+            <figcaption class="slide-caption">
+              <span class="slide-team">Team Name 2</span>
+              <span class="slide-place">Placement 2</span>
+            </figcaption>
+          </figure>
+
+          <figure class="slide">
+            <img src="images/winner-3.jpg" alt="PLACEHOLDER: describe photo 3" loading="lazy" onerror="this.style.display='none'" />
+            <figcaption class="slide-caption">
+              <span class="slide-team">Team Name 3</span>
+              <span class="slide-place">Placement 3</span>
+            </figcaption>
+          </figure>
+
+          <figure class="slide">
+            <img src="images/winner-4.jpg" alt="PLACEHOLDER: describe photo 4" loading="lazy" onerror="this.style.display='none'" />
+            <figcaption class="slide-caption">
+              <span class="slide-team">Team Name 4</span>
+              <span class="slide-place">Placement 4</span>
+            </figcaption>
+          </figure>
+
+          <figure class="slide">
+            <img src="images/winner-5.jpg" alt="PLACEHOLDER: describe photo 5" loading="lazy" onerror="this.style.display='none'" />
+            <figcaption class="slide-caption">
+              <span class="slide-team">Team Name 5</span>
+              <span class="slide-place">Placement 5</span>
+            </figcaption>
+          </figure>
+
+          <figure class="slide">
+            <img src="images/winner-6.jpg" alt="PLACEHOLDER: describe photo 6" loading="lazy" onerror="this.style.display='none'" />
+            <figcaption class="slide-caption">
+              <span class="slide-team">Team Name 6</span>
+              <span class="slide-place">Placement 6</span>
+            </figcaption>
+          </figure>
+
+        </div>
+        <div class="carousel-dots" role="group" aria-label="Choose a slide"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- PRIZE CALLOUT -->
   <section class="prize-callout">
     <div class="prize-callout-inner">
@@ -209,5 +285,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/carousel.js"></script>
 </body>
 </html>
